@@ -22,7 +22,10 @@
 }
 
 .App-body {
-  margin: 16px 24px;
+  padding: 16px 24px;
+  min-height: calc(100vh - 100px); /* full window height minus header height */
+  box-sizing: border-box;
+  position: relative;
 }
 
 @keyframes App-logo-spin {
