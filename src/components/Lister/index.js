@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import getPosts from '../../services/posts';
 import Post from './Post'
 import CreatePost from './CreatePost';
+import LoadSpinner from '../LoadSpinner/LoadSpinner';
 
 const Lister = () => {
 
@@ -14,8 +15,6 @@ const Lister = () => {
 			setPosts(data);
 		});
 	}, []);
-
-	return <div>TODO - wire up lister component</div>
 
 	const onDeletePost = (id) => {
 		// TODO: implement
@@ -32,8 +31,10 @@ const Lister = () => {
 	//					<CreatePost />
 	// 				</div>
 	//				...
+	//
 
-
+	// Show load spinner by default
+	return <LoadSpinner />;
 };
 
 export default Lister;
