@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, {useReducer, useState} from 'react';
 
 const CreatePost = ({ onCreate }) => {
 	const initialState = {
@@ -8,7 +8,21 @@ const CreatePost = ({ onCreate }) => {
 	};
 
 	const postReducer = (state, { type, ...payload } ) => {
-		// TODO: implement action handlers
+		switch (type) {
+			case 'update':
+				return {
+					...state,
+					[payload.key]: payload.value
+				};
+			case 'reset':
+				return {
+					title: '',
+					body: '',
+					author: ''
+				};
+			default:
+				throw new Error();
+		}
 	};
 
 	const [{title, body, author}, dispatch] = useReducer(postReducer, initialState)

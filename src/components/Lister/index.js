@@ -25,7 +25,27 @@ const Lister = () => {
 	}
 
 	const onCreatePost = post => {
-		// TODO: implement
+		const {
+			title,
+			body,
+			author,
+		} = post;
+
+		const id = allPosts.length ? allPosts[allPosts.length - 1].id + 1 : 1;
+
+		setPosts([
+			...allPosts,
+			{
+				id,
+				title,
+				body,
+				author
+			}
+		]);
+	}
+
+	const renderCreatePost = () => {
+		return <CreatePost onCreate={onCreatePost} />;
 	}
 
 	// Show load spinner
@@ -47,7 +67,7 @@ const Lister = () => {
 					/>
 				))}
 
-				<CreatePost />
+				{ renderCreatePost() }
 			</div>
 		);
 	}
@@ -60,7 +80,7 @@ const Lister = () => {
 					No posts available...
 				</p>
 
-				<CreatePost />
+				{ renderCreatePost() }
 			</div>
 		)
 	}
