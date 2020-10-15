@@ -5,12 +5,14 @@
   color: white;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0 10px;
 }
 
 .App-logo {
   height: 48px;
   pointer-events: none;
+  margin-left: -10px; /* Offset for image weighting */
 }
 
 @media (prefers-reduced-motion: no-preference) {
