@@ -24,13 +24,13 @@ const Lister = () => {
 		setPosts(updatedPosts);
 	}
 
-	const onCreatePost = post => {
-		const {
-			title,
-			body,
-			author,
-		} = post;
-
+	const onCreatePost = ({ title, body, author }) => {
+		// Notes:
+		// ------
+		// In my opinion, this is an okay way of making sure there are no conflicting IDs
+		// which are also used as the Post component's 'key' later on allowing us to not
+		// use the index from the map as a component key.
+		// ------
 		const id = allPosts.length ? allPosts[allPosts.length - 1].id + 1 : 1;
 
 		setPosts([
