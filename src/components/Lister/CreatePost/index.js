@@ -26,7 +26,7 @@ const CreatePost = ({ onCreate }) => {
 					author: ''
 				};
 			default:
-				throw new Error();
+				return state; // Questionable practise as an error will be more useful. There should never be an missing case.
 		}
 	};
 
